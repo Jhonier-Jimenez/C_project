@@ -98,10 +98,11 @@ int main(int argc, char *argv[])
 
 	// ---EJERCICIO 4-----
 	//get_node_by_id(node, 12);
+	
+	// ---EJERCICIO 5-----
+	//insert_node_in_middle(node,74000);
 
-	insert_node_in_middle(node,74000);
-
-	menu(items);
+	menu(items,*node);
 
 	fclose(fp);
 	if (line)

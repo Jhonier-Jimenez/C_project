@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "base_struct.h"
 
-void menu(item_t items[])
+void menu(item_t items[],t_node head)
 {
     int choice;
     while (1)
@@ -50,6 +50,7 @@ void menu(item_t items[])
 
         else if(choice == 5){
             insertarNuevoElemento(items);
+            insert_node_in_middle(&head,2000);
         }
 
         else if (choice == 6)
@@ -61,6 +62,7 @@ void menu(item_t items[])
             printf("Please enter the age X: ");
             scanf("%d", &x);
             find_persons_by_city_and_age(items, city_name, x);
+            count_people_by_city_report(&head, city_name, x);
         }
         else if (choice == 7)
         {
@@ -71,6 +73,7 @@ void menu(item_t items[])
             printf("Please enter the ID and age range (ID X Y): ");
             scanf("%d %d %d", &id, &x, &y);
             call_all_methods(items, city_name, id, x, y);
+            call_all_methods_list(&head, city_name, id, x, y);
         }
 
         else if (choice == 8)

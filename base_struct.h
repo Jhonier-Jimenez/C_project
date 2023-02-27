@@ -75,8 +75,11 @@ void count_people_by_city(t_node *node, int *count);
 void get_average_income_by_city_and_age(t_node *head, city_t city, int x_age, int y_age);
 void get_probability_illness_by_age(t_node *head, int x_age);
 void *get_node_by_id(t_node *head, unsigned int id);
+void insert_node_in_middle(t_node *head, unsigned int id);
+void count_people_by_city_report(t_node *head, char *city_name, int x_age);
+void call_all_methods_list(t_node *head, char *city_name, int id, int X, int Y);
 
 //MENU
-void menu(item_t items[]);
+void menu(item_t items[],t_node head);
 
 #endif

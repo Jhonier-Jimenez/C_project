@@ -212,3 +212,55 @@ void insert_node_in_middle(t_node *head, unsigned int id)
 }
 
 
+void count_people_by_city_report(t_node *head, char *city_name, int x_age)
+{
+    // Clock section
+    clock_t start, end;
+    double cpu_time_used;
+    start = clock();
+
+    // Start function
+    city_t city = get_city_t(city_name);
+    int count = 0;
+    t_node *current = head;
+    while (current != NULL)
+    {
+        if (current->item.city == city && current->item.age == x_age)
+        {
+            count++;
+        }
+        current = current->next;
+    }
+
+    printf("Hay %d personas que viven en %s y tienen %d años.\n", count, city_names[city], x_age);
+
+    // End clock section
+    end = clock();
+    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+    printf("Time taken to execute the function with the use of linked lists is: %.9f seconds\n", cpu_time_used);
+}
+
+void call_all_methods_list(t_node *head, char *city_name, int id, int X, int Y)
+{
+    // Clock section
+    clock_t start, end;
+    double cpu_time_used;
+    start = clock();
+
+    // Start function
+    int numero = 0;
+    count_people_by_city(head, &numero);
+    char *city_char = "Dallas";
+	city_t city = get_city_t(city_char);
+	get_average_income_by_city_and_age(head, city, 32,60);
+    get_probability_illness_by_age(head, 32);
+	get_node_by_id(head, 12);
+	insert_node_in_middle(head,74000);
+    count_people_by_city_report(head, city_name, X);
+    
+
+    // End clock section
+    end = clock();
+    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+    printf("Time taken to execute all of the linked lists functions is: %.9f seconds\n", cpu_time_used);
+}
