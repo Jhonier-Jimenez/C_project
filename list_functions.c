@@ -166,3 +166,101 @@ void *get_node_by_id(t_node *head, unsigned int id)
     cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
     printf("Time taken to execute the function with the use of linked lists is: %.9f seconds\n", cpu_time_used);
 }
+
+
+//5
+void insert_node_in_middle(t_node *head, unsigned int id)
+{
+    // Clock section
+    clock_t start, end;
+    double cpu_time_used;
+    start = clock();
+
+    // Start function
+    t_node *current = head;
+    while (current != NULL)
+    {
+        if (current->item.id == 74999)
+        {
+            // Found the node after which we will insert the new node
+            t_node *new_node = (t_node*) malloc(sizeof(t_node));
+            new_node->item.id = 75000;
+            new_node->item.age = current->next->item.age; // We set the age of the new node equal to the next node's age
+            new_node->item.city = current->next->item.city; // We set the city of the new node equal to the next node's city
+            new_node->item.gender = current->next->item.gender; // We set the gender of the new node equal to the next node's gender
+            new_node->item.income = current->next->item.income; // We set the income of the new node equal to the next node's income
+            new_node->item.illness = current->next->item.illness; // We set the illness of the new node equal to the next node's illness
+            new_node->next = current->next;
+            current->next = new_node;
+            // We need to recalculate the id of all the elements after the new element
+            t_node *recalculate_node = new_node->next;
+            while (recalculate_node != NULL)
+            {
+                recalculate_node->item.id++;
+                recalculate_node = recalculate_node->next;
+            }
+            printf("New node with id %d has been inserted after node with id 74999\n", new_node->item.id);
+            break;
+        }
+        current = current->next;
+    }
+
+    // End clock section
+    end = clock();
+    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+    printf("Time taken to execute the function with the use of linked lists is: %.9f seconds\n", cpu_time_used);
+}
+
+
+void count_people_by_city_report(t_node *head, char *city_name, int x_age)
+{
+    // Clock section
+    clock_t start, end;
+    double cpu_time_used;
+    start = clock();
+
+    // Start function
+    city_t city = get_city_t(city_name);
+    int count = 0;
+    t_node *current = head;
+    while (current != NULL)
+    {
+        if (current->item.city == city && current->item.age == x_age)
+        {
+            count++;
+        }
+        current = current->next;
+    }
+
+    printf("Hay %d personas que viven en %s y tienen %d años.\n", count, city_names[city], x_age);
+
+    // End clock section
+    end = clock();
+    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+    printf("Time taken to execute the function with the use of linked lists is: %.9f seconds\n", cpu_time_used);
+}
+
+void call_all_methods_list(t_node *head, char *city_name, int id, int X, int Y)
+{
+    // Clock section
+    clock_t start, end;
+    double cpu_time_used;
+    start = clock();
+
+    // Start function
+    int numero = 0;
+    count_people_by_city(head, &numero);
+    char *city_char = "Dallas";
+	city_t city = get_city_t(city_char);
+	get_average_income_by_city_and_age(head, city, 32,60);
+    get_probability_illness_by_age(head, 32);
+	get_node_by_id(head, 12);
+	insert_node_in_middle(head,74000);
+    count_people_by_city_report(head, city_name, X);
+    
+
+    // End clock section
+    end = clock();
+    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+    printf("Time taken to execute all of the linked lists functions is: %.9f seconds\n", cpu_time_used);
+}
