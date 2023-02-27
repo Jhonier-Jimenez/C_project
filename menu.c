@@ -21,6 +21,8 @@ void menu(item_t items[],t_node head)
 
         if(choice == 1){
             generarReporteCiudades(items);
+            int numero = 0;
+            count_people_by_city(&head, &numero);
         }
 
         else if (choice == 2)
@@ -31,6 +33,8 @@ void menu(item_t items[],t_node head)
             scanf("%s[^\n]", city_name);
             printf("Please enter the age range (X Y): ");
             scanf("%d %d", &x, &y);
+            city_t city = get_city_t(city_name);
+            get_average_income_by_city_and_age(&head, city, 32,60);
             get_average_income(items, city_name, x, y);
             fflush(stdin);
             fflush(stdout);
@@ -38,6 +42,7 @@ void menu(item_t items[],t_node head)
 
         else if(choice == 3){
             generarProbabilidadEnfermedad(items);
+            get_probability_illness_by_age(&head, 32);
         }
 
         else if (choice == 4)
@@ -46,6 +51,7 @@ void menu(item_t items[],t_node head)
             printf("Please enter the item ID: ");
             scanf("%d", &id);
             find_person_by_id(items, id);
+            get_node_by_id(&head, id);
         }
 
         else if(choice == 5){
@@ -61,6 +67,7 @@ void menu(item_t items[],t_node head)
             scanf("%s", city_name);
             printf("Please enter the age X: ");
             scanf("%d", &x);
+            printf("City name: %s",city_name);
             find_persons_by_city_and_age(items, city_name, x);
             count_people_by_city_report(&head, city_name, x);
         }
