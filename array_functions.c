@@ -62,7 +62,7 @@ void generarReporteCiudades(item_t items[])
     printf("- La cantidad en San Diego es: %d\n", qPeople[6]);
     printf("- La cantidad en Austin es: %d\n", qPeople[7]);
 
-    // End section
+    // End clock section
     end = clock();
     cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
     printf("Time taken to execute the function with the use of arrays is: %.9f seconds\n", cpu_time_used);
@@ -72,6 +72,12 @@ void generarReporteCiudades(item_t items[])
 // 2
 void get_average_income(item_t items[], char *city_name, int X, int Y)
 {
+    // Clock section
+    clock_t start, end;
+    double cpu_time_used;
+    start = clock();
+
+    // Start function
     double sum = 0;
     int count = 0;
     city_t city = get_city_t(city_name);
@@ -94,6 +100,11 @@ void get_average_income(item_t items[], char *city_name, int X, int Y)
         float result = sum / count;
         printf("Average income of persons in %s between ages %d and %d: %.2f\n", city_name, X, Y, result);
     }
+
+    // End clock section
+    end = clock();
+    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+    printf("Time taken to execute the function with the use of arrays is: %.9f seconds\n", cpu_time_used);
 }
 
 //--------------------
@@ -101,6 +112,12 @@ void get_average_income(item_t items[], char *city_name, int X, int Y)
 
 void generarProbabilidadEnfermedad(item_t items[])
 {
+    // Clock section
+    clock_t start, end;
+    double cpu_time_used;
+    start = clock();
+
+    // Start function
     int age;
     item_t item;
     int size = 150000;
@@ -130,12 +147,23 @@ void generarProbabilidadEnfermedad(item_t items[])
     prob = prob * 100;
 
     printf("La probabilidad de estar enfermo cuando se tienen %d o más años es del %f porciento.\n", age, prob);
+    
+    // End clock section
+    end = clock();
+    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+    printf("Time taken to execute the function with the use of arrays is: %.9f seconds\n", cpu_time_used);
 }
 
 //--------------------
 // 4
 void find_person_by_id(item_t items[], int id)
 {
+    // Clock section
+    clock_t start, end;
+    double cpu_time_used;
+    start = clock();
+
+    // Start function
 
     for (int i = 0; i < 150000; i++)
     {
@@ -149,17 +177,29 @@ void find_person_by_id(item_t items[], int id)
             printf("Gender: %s\n", gender_names[items[i].gender]);
             printf("Income: %d\n", items[i].income);
             printf("Illness: %s\n", illness_values[items[i].illness]);
+            // End clock section
+            end = clock();
+            cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+            printf("Time taken to execute the function with the use of arrays is: %.9f seconds\n", cpu_time_used);
             return;
         }
     }
 
     printf("Item with ID %d not found.\n", id);
+
+
 }
 //--------------------
 // 5
 
 void insertarNuevoElemento(item_t items[])
 {
+    // Clock section
+    clock_t start, end;
+    double cpu_time_used;
+    start = clock();
+
+    // Start function
     int size = 150000;
     int half = 75000;
     int city, gen, age, income, illness, i;
@@ -269,6 +309,11 @@ void insertarNuevoElemento(item_t items[])
 
     printf("\nEl usuario anterior de la mitad tiene %d años.\n", items[half].age);
     printf("\nEl nuevo usuario de la mitad tiene %d años.\n", newItems[half].age);
+
+    // End clock section
+    end = clock();
+    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+    printf("Time taken to execute the function with the use of arrays is: %.9f seconds\n", cpu_time_used);
 }
 
 //-------------------
@@ -276,6 +321,12 @@ void insertarNuevoElemento(item_t items[])
 
 void find_persons_by_city_and_age(item_t items[], char *city_name, int X)
 {
+    // Clock section
+    clock_t start, end;
+    double cpu_time_used;
+    start = clock();
+
+    // Start function
     int count = 0;
     for (int i = 0; i < 150000; i++)
     {
@@ -285,6 +336,11 @@ void find_persons_by_city_and_age(item_t items[], char *city_name, int X)
         }
     }
     printf("Number of persons with age %d in %s: %d\n", X, city_name, count);
+    
+    // End clock section
+    end = clock();
+    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+    printf("Time taken to execute the function with the use of arrays is: %.9f seconds\n", cpu_time_used);
 }
 
 //-------------------
@@ -292,15 +348,19 @@ void find_persons_by_city_and_age(item_t items[], char *city_name, int X)
 
 void call_all_methods(item_t items[], char *city_name, int id, int X, int Y)
 {
+    // Clock section
     clock_t start, end;
     double cpu_time_used;
-
     start = clock();
+
+    // Start function
     get_average_income(items, city_name, X, Y);
     find_person_by_id(items, id);
     find_persons_by_city_and_age(items, city_name, X);
-    end = clock();
 
+
+    // End clock section
+    end = clock();
     cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
     printf("Time taken to execute all of the array functions is: %.9f seconds\n", cpu_time_used);
 }
