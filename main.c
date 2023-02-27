@@ -82,26 +82,6 @@ int main(int argc, char *argv[])
 		line_number++;
 	}
 
-
-	// LISTAS LIGADAS
-	// ----EJERCICIO 1----
-	//int numero = 0;
-	//count_people_by_city(node, &numero);
-
-	// ----EJERCICIO 2----
-	// char *city_char = "Dallas";
-	// city_t city = get_city_t(city_char);
-	// get_average_income_by_city_and_age(node, city, 32,60);
-
-	// ---EJERCICIO 3-----
-	//get_probability_illness_by_age(node, 32);
-
-	// ---EJERCICIO 4-----
-	//get_node_by_id(node, 12);
-	
-	// ---EJERCICIO 5-----
-	//insert_node_in_middle(node,74000);
-
 	menu(items,*node);
 
 	fclose(fp);

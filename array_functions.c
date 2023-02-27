@@ -205,7 +205,7 @@ void insertarNuevoElemento(item_t items[])
     int city, gen, age, income, illness, i;
     item_t *newItems;
 
-    newItems = (item_t *)malloc(sizeof(int) * (size + 1));
+    newItems = (item_t *)malloc(sizeof(item_t) * (size + 1));
 
     for (i = 0; i < half; i++)
     {
