@@ -166,3 +166,49 @@ void *get_node_by_id(t_node *head, unsigned int id)
     cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
     printf("Time taken to execute the function with the use of linked lists is: %.9f seconds\n", cpu_time_used);
 }
+
+
+//5
+void insert_node_in_middle(t_node *head, unsigned int id)
+{
+    // Clock section
+    clock_t start, end;
+    double cpu_time_used;
+    start = clock();
+
+    // Start function
+    t_node *current = head;
+    while (current != NULL)
+    {
+        if (current->item.id == 74999)
+        {
+            // Found the node after which we will insert the new node
+            t_node *new_node = (t_node*) malloc(sizeof(t_node));
+            new_node->item.id = 75000;
+            new_node->item.age = current->next->item.age; // We set the age of the new node equal to the next node's age
+            new_node->item.city = current->next->item.city; // We set the city of the new node equal to the next node's city
+            new_node->item.gender = current->next->item.gender; // We set the gender of the new node equal to the next node's gender
+            new_node->item.income = current->next->item.income; // We set the income of the new node equal to the next node's income
+            new_node->item.illness = current->next->item.illness; // We set the illness of the new node equal to the next node's illness
+            new_node->next = current->next;
+            current->next = new_node;
+            // We need to recalculate the id of all the elements after the new element
+            t_node *recalculate_node = new_node->next;
+            while (recalculate_node != NULL)
+            {
+                recalculate_node->item.id++;
+                recalculate_node = recalculate_node->next;
+            }
+            printf("New node with id %d has been inserted after node with id 74999\n", new_node->item.id);
+            break;
+        }
+        current = current->next;
+    }
+
+    // End clock section
+    end = clock();
+    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+    printf("Time taken to execute the function with the use of linked lists is: %.9f seconds\n", cpu_time_used);
+}
+
+

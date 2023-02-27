@@ -3,6 +3,7 @@
 #include <string.h>
 #include "base_struct.h"
 #include "base_struct.c"
+#include "list_functions.c"
 #include "array_functions.c"
 #include "menu.c"
 
@@ -97,6 +98,8 @@ int main(int argc, char *argv[])
 
 	// ---EJERCICIO 4-----
 	//get_node_by_id(node, 12);
+
+	insert_node_in_middle(node,74000);
 
 	menu(items);
 
