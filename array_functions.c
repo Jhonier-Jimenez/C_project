@@ -7,6 +7,9 @@
 // 1
 void generarReporteCiudades(item_t items[])
 {
+    printf("\n");
+    printf("----------------------------------------------\n");
+    printf("ARRAYS FUNCTION 1\n");
     // Clock section
     clock_t start, end;
     double cpu_time_used;
@@ -72,6 +75,9 @@ void generarReporteCiudades(item_t items[])
 // 2
 void get_average_income(item_t items[], char *city_name, int X, int Y)
 {
+    printf("\n");
+    printf("----------------------------------------------\n");
+    printf("ARRAYS FUNCTION 2\n");
     // Clock section
     clock_t start, end;
     double cpu_time_used;
@@ -112,6 +118,9 @@ void get_average_income(item_t items[], char *city_name, int X, int Y)
 
 void generarProbabilidadEnfermedad(item_t items[])
 {
+    printf("\n");
+    printf("----------------------------------------------\n");
+    printf("ARRAYS FUNCTION 3\n");
     // Clock section
     clock_t start, end;
     double cpu_time_used;
@@ -147,7 +156,7 @@ void generarProbabilidadEnfermedad(item_t items[])
     prob = prob * 100;
 
     printf("La probabilidad de estar enfermo cuando se tienen %d o más años es del %f porciento.\n", age, prob);
-    
+
     // End clock section
     end = clock();
     cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
@@ -158,6 +167,9 @@ void generarProbabilidadEnfermedad(item_t items[])
 // 4
 void find_person_by_id(item_t items[], int id)
 {
+    printf("\n");
+    printf("----------------------------------------------\n");
+    printf("ARRAYS FUNCTION 4\n");
     // Clock section
     clock_t start, end;
     double cpu_time_used;
@@ -186,14 +198,15 @@ void find_person_by_id(item_t items[], int id)
     }
 
     printf("Item with ID %d not found.\n", id);
-
-
 }
 //--------------------
 // 5
 
 void insertarNuevoElemento(item_t items[])
 {
+    printf("\n");
+    printf("----------------------------------------------\n");
+    printf("ARRAYS FUNCTION 5\n");
     // Clock section
     clock_t start, end;
     double cpu_time_used;
@@ -209,7 +222,6 @@ void insertarNuevoElemento(item_t items[])
 
     for (i = 0; i < half; i++)
     {
-        printf("%d\n", i);
         newItems[i] = items[i];
     }
 
@@ -321,6 +333,9 @@ void insertarNuevoElemento(item_t items[])
 
 void find_persons_by_city_and_age(item_t items[], char *city_name, int X)
 {
+    printf("\n");
+    printf("----------------------------------------------\n");
+    printf("ARRAYS FUNCTION 6\n");
     // Clock section
     clock_t start, end;
     double cpu_time_used;
@@ -336,7 +351,7 @@ void find_persons_by_city_and_age(item_t items[], char *city_name, int X)
         }
     }
     printf("Number of persons with age %d in %s: %d\n", X, city_name, count);
-    
+
     // End clock section
     end = clock();
     cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
@@ -348,16 +363,21 @@ void find_persons_by_city_and_age(item_t items[], char *city_name, int X)
 
 void call_all_methods(item_t items[], char *city_name, int id, int X, int Y)
 {
+    printf("\n");
+    printf("----------------------------------------------\n");
+    printf("CALLING ALL METHODS WITH ARRAYS\n");
     // Clock section
     clock_t start, end;
     double cpu_time_used;
     start = clock();
 
     // Start function
+    generarReporteCiudades(items);
     get_average_income(items, city_name, X, Y);
+    generarProbabilidadEnfermedad(items);
     find_person_by_id(items, id);
+    insertarNuevoElemento(items);
     find_persons_by_city_and_age(items, city_name, X);
-
 
     // End clock section
     end = clock();

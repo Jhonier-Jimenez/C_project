@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "base_struct.h"
 
-void menu(item_t items[],t_node head)
+void menu(item_t items[], t_node head)
 {
     int choice;
     while (1)
@@ -19,7 +19,8 @@ void menu(item_t items[],t_node head)
         printf("Choice: ");
         scanf("%d", &choice);
 
-        if(choice == 1){
+        if (choice == 1)
+        {
             generarReporteCiudades(items);
             int numero = 0;
             count_people_by_city(&head, &numero);
@@ -34,13 +35,14 @@ void menu(item_t items[],t_node head)
             printf("Please enter the age range (X Y): ");
             scanf("%d %d", &x, &y);
             city_t city = get_city_t(city_name);
-            get_average_income_by_city_and_age(&head, city, 32,60);
+            get_average_income_by_city_and_age(&head, city, 32, 60);
             get_average_income(items, city_name, x, y);
             fflush(stdin);
             fflush(stdout);
         }
 
-        else if(choice == 3){
+        else if (choice == 3)
+        {
             generarProbabilidadEnfermedad(items);
             get_probability_illness_by_age(&head, 32);
         }
@@ -54,9 +56,10 @@ void menu(item_t items[],t_node head)
             get_node_by_id(&head, id);
         }
 
-        else if(choice == 5){
+        else if (choice == 5)
+        {
             insertarNuevoElemento(items);
-            insert_node_in_middle(&head,2000);
+            insert_node_in_middle(&head, 2000);
         }
 
         else if (choice == 6)
@@ -67,7 +70,7 @@ void menu(item_t items[],t_node head)
             scanf("%s", city_name);
             printf("Please enter the age X: ");
             scanf("%d", &x);
-            printf("City name: %s",city_name);
+            printf("City name: %s", city_name);
             find_persons_by_city_and_age(items, city_name, x);
             count_people_by_city_report(&head, city_name, x);
         }

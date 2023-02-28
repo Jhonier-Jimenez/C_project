@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
 		line_number++;
 	}
 
-	menu(items,*node);
+	menu(items, *node);
 
 	fclose(fp);
 	if (line)
